@@ -89,7 +89,11 @@ exports.showCompanyReviews = function(req,res){
 };
 
 exports.showBubble= function(req, res){
-	res.render('bubbleChart');
+	var stateName = req.params.stateName;
+	//console.log("__________"+stateName+"param="+req.params.companyName);
+	var companyName = req.params.companyName;
+	console.log("__________"+stateName+"_______"+companyName);
+	res.render('bubbleChart',{stateName:stateName,companyName:companyName});
 	};
 
 exports.getJobcountData = function(req,res){
@@ -106,9 +110,13 @@ exports.showTreeMap = function(req,res){
 	res.render('companyTreeMap',{dat:req.params.stateName});
 }
 exports.getBubble= function(req, res){
+	console.log("side getBubble");
+	var stateName = req.params.stateName;
+	var companyName = req.params.companyName;
 	dbConn.getBubble(function(err,rows){
+		console.log("Inside getBubble");
 		console.log(rows);
 				 res.send(rows);
-	});	
+	},stateName,companyName);	
 };
 
