@@ -30,6 +30,12 @@ exports.getBarChart = function(req, res){
 
 };
 
+exports.getScoreVizChart = function(req, res){
+	 res.render('shop');
+
+};
+
+
 
 exports.getScatter1 = function(req,res){
 	dbConn.getScatter1(function(err,rows){
@@ -75,4 +81,12 @@ exports.search= function(req,res){
 		console.log('Rows from index= '+JSON.stringify(rows));
 		 res.send('['+rows+']');
 	},req.query.key);	
+};
+
+exports.getScoreVizData = function(req, res){
+	dbConn.getScoreVizData(function(err,rows){
+		console.log(rows);
+		 res.send(rows);
+	});	
+	  
 };
