@@ -56,5 +56,10 @@ exports.getBar= function(req, res){
 	},req.params.strUser);	
 };
 
-
-
+exports.search= function(req,res){
+	dbConn.search(function(err,rows){
+		console.log('Search key= '+req.query.key);
+		console.log('Rows from index= '+JSON.stringify(rows));
+		 res.send('['+rows+']');
+	},req.query.key);	
+};
