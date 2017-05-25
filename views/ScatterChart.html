@@ -74,7 +74,7 @@ $(document).ready(function(){
     $('input.typeahead').typeahead({
     	valueKey: 'name',
         name: 'typeahead',
-        remote: 'http://localhost:3000/search?key=%QUERY',  
+        remote: '/search?key=%QUERY',  
         limit: 10
     });
 });
